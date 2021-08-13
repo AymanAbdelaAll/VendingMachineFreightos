@@ -17,7 +17,6 @@ public class TestVendingMachine {
             put(Coins.FIFTY, 1);
             put(Coins.TWENTY, 2);
             put(Coins.TEN, 3);
-
         }};
 
         vmBuilder.buildCoins(coins); // set coins to vending machine
@@ -113,12 +112,12 @@ public class TestVendingMachine {
                             case 1:
                                 orderPayment = new CashPayment();
                                 HashMap<Coins, Integer> coinsEntered = Coins.EMPTY.getEmptyCoins();
-                                double balanced=0;
+                                double balanced = 0;
                                 while (true) {
-                                    if (balanced/100<1)
-                                        System.out.println("            EnteredBalanced= " +balanced +" c");
+                                    if (balanced / 100 < 1)
+                                        System.out.println("            EnteredBalanced= " + balanced + " c");
                                     else
-                                        System.out.println("            EnteredBalanced = "+balanced/100+" $");
+                                        System.out.println("            EnteredBalanced = " + balanced / 100 + " $");
 
                                     System.out.println("\nEnter the amount of cash you want to Enter and -1 to exit :");
                                     Integer amount = input.nextInt();
@@ -141,7 +140,7 @@ public class TestVendingMachine {
                                         if (containCoins(amount) != null) {
                                             Coins coin = containCoins(amount);
                                             coinsEntered.put(coin, coinsEntered.get(coin) + 1);
-                                            balanced+=amount;
+                                            balanced += amount;
                                         } else {
                                             System.out.println("You should Enter amount from these value" +
                                                     Coins.TEN.toString());
@@ -158,8 +157,7 @@ public class TestVendingMachine {
                                 break;
                             default:
                                 System.out.println("Please Choose the valid number between choice to determine payment type .");
-
-                        }//switch pracket
+                        }
 
                         if (orderPayment != null) {
                             vendingMachine.setOrder(orderItem, orderPayment);
